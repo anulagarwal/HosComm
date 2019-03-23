@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>register</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <mat-form-field style="width:100%;">
+        <input matInput placeholder="Email" type="text">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput placeholder="Password" type="password">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput placeholder="Confirm Password" type="password">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput placeholder="Full Name" type="text">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <mat-label>City</mat-label>
+        <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option>Option 1</mat-option>
+            <mat-option>Option 2</mat-option>
+            <mat-option>Option 3</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <mat-label>Residance</mat-label>
+        <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option>Option 1</mat-option>
+            <mat-option>Option 2</mat-option>
+            <mat-option>Option 3</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button style="width:100%;" color="primary" (click)="registerNotification()">Register</button>
+    <br>
+    <br>
+    <button mat-button style="width:100%;" color="primary">Login</button>
+</ion-content>
