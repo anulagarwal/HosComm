@@ -18,7 +18,6 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
   loginUser(){
-    alert('adsa');
       let record = {};
       record['email'] =  (<HTMLInputElement>document.getElementById('email')).value;
       record['password'] = (<HTMLInputElement>document.getElementById('password')).value;
@@ -29,9 +28,12 @@ export class LoginPage implements OnInit {
           return {
             id: e.payload.doc.id,
             isEdit: false,
-            Name: e.payload.doc.data()['Name'],
-            Age: e.payload.doc.data()['Age'],
-            Address: e.payload.doc.data()['Address'],
+            CityID: e.payload.doc.data()['cityID'],
+            Email: e.payload.doc.data()['email'],
+            FullName: e.payload.doc.data()['fullName'],
+            Password: e.payload.doc.data()['password'],
+            ResidanceID: e.payload.doc.data()['residanceID'],
+            TotalEarnings: e.payload.doc.data()['totalEarnings'],
           };
         })
         console.log(this.sampleUser);

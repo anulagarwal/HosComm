@@ -6,20 +6,20 @@
 
 <ion-content class="ion-padding">
     <mat-form-field style="width:100%;">
-        <input matInput placeholder="Email" type="text">
+        <input matInput id="email" placeholder="Email" type="text">
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput placeholder="Password" type="password">
+        <input matInput id="password" placeholder="Password" type="password">
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput placeholder="Confirm Password" type="password">
+        <input matInput id="password2" placeholder="Confirm Password" type="password">
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput placeholder="Full Name" type="text">
+        <input matInput id="fullName" placeholder="Full Name" type="text">
     </mat-form-field>
     <mat-form-field style="width:100%;">
         <mat-label>City</mat-label>
-        <mat-select>
+        <mat-select id="city">
             <mat-option>None</mat-option>
             <mat-option>Option 1</mat-option>
             <mat-option>Option 2</mat-option>
@@ -36,8 +36,8 @@
         </mat-select>
     </mat-form-field>
     <br>
-    <button mat-raised-button style="width:100%;" color="primary" (click)="registerNotification()">Register</button>
+    <ion-button mat-raised-button style="width:100%;" color="primary" (click)="registerNotification()">Register</ion-button>
     <br>
     <br>
-    <button mat-button style="width:100%;" color="primary">Login</button>
+    <ion-button mat-button style="width:100%;" color="primary">Login</ion-button>
 </ion-content>
