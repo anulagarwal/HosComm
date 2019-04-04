@@ -6,33 +6,33 @@
 
 <ion-content class="ion-padding">
     <mat-form-field style="width:100%;">
-        <input matInput id="email" placeholder="Email" type="text">
+        <input matInput id="email" placeholder="Email" type="text" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput id="password" placeholder="Password" type="password">
+        <input matInput id="password" placeholder="Password" type="password" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput id="password2" placeholder="Confirm Password" type="password">
+        <input matInput id="password2" placeholder="Confirm Password" type="password" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput id="fullName" placeholder="Full Name" type="text">
+        <input matInput id="fullName" placeholder="Full Name" type="text" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
         <mat-label>City</mat-label>
-        <mat-select id="city">
+        <mat-select [(ngModel)]="selectedValueCity" >
             <mat-option>None</mat-option>
-            <mat-option>Option 1</mat-option>
-            <mat-option>Option 2</mat-option>
-            <mat-option>Option 3</mat-option>
+            <mat-option *ngFor="let city of cities" [value]="city.id">
+                {{city.name}}
+            </mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field style="width:100%;">
         <mat-label>Residance</mat-label>
-        <mat-select>
+        <mat-select [(ngModel)]="selectedValueRes" >
             <mat-option>None</mat-option>
-            <mat-option>Option 1</mat-option>
-            <mat-option>Option 2</mat-option>
-            <mat-option>Option 3</mat-option>
+            <mat-option *ngFor="let residance of residances" (ngModelChange)="onChangeRes($event)" [value]="residance.id">
+                {{residance.name}}
+            </mat-option>
         </mat-select>
     </mat-form-field>
     <br>

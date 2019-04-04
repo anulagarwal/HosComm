@@ -1,49 +1,79 @@
 import { Injectable } from '@angular/core';
-import { User, GroceryStore, Visit, City, Residance, Chat } from  './app.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MapperService {
-  user : User;
-  store : GroceryStore;
-  visit : Visit;
-  city : City;
-  residance : Residance;
-  chat : Chat;
 
   constructor() { }
 
   mapUsers(data){
     return data.map(e => {
-      this.user = undefined;
-      this.user.id = e.payload.doc.id;
-      this.user.cityId = e.payload.doc.data()['cityID'];
-      this.user.fullName = e.payload.doc.data()['fullName'];
-      this.user.residanceId = e.payload.doc.data()['residanceID'];
-      this.user.totalEarnings = e.payload.doc.data()['totalEarnings'];
-      this.user.password = e.payload.doc.data()['password'];
-      return this.user;
+      return {
+        id: e.payload.doc.id,
+        email: e.payload.doc.data()['email'],
+        password: e.payload.doc.data()['password'],
+        fullName: e.payload.doc.data()['fullName'],
+        cityId: e.payload.doc.data()['cityId'],
+        residanceId: e.payload.doc.data()['residanceId'],
+        totalEarnings: e.payload.doc.data()['totalEarnings'],
+      }
     });
   }
 
   mapStores(data){
     return data.map(e => {
-      for (let key in this.store){
-        this.store[key] = undefined;
-        this.store[key] = key != 'id' ? e.payload.doc.data()[key] : e.payload.doc.id;
+      return {
+        id: e.payload.doc.id,
+        cityId:  e.payload.doc.data()['cityId'],
+        name:    e.payload.doc.data()['name'],
+        address: e.payload.doc.data()['address'],
       }
-      return this.store;
+    });
+  }
+
+  mapCities(data){
+    return data.map(e => {
+      return {
+        id:    e.payload.doc.id,
+        name: e.payload.doc.data()['name']
+      };
     });
   }
 
   mapResidances(data){
     return data.map(e => {
-      for (let key in this.residance){
-        this.residance[key] = undefined;
-        this.residance[key] = key != 'id' ? e.payload.doc.data()[key] : e.payload.doc.id;
+      return {
+        id: e.payload.doc.id,
+        cityId:  e.payload.doc.data()['cityId'],
+        name:    e.payload.doc.data()['name'],
+        address: e.payload.doc.data()['address'],
       }
-      return this.residance;
+    });
+  }
+
+  mapVisits(data){
+    return data.map(e => {
+      return {
+        id: e.payload.doc.id,
+        userId:  e.payload.doc.data()['userId'],
+        goceryStoreId:    e.payload.doc.data()['goceryStoreId'],
+        residanceId: e.payload.doc.data()['residanceId'],
+        timeOfVisit: e.payload.doc.data()['timeOfVisit'],
+      }
+    });
+  }
+
+  mapChat(data){
+    return data.map(e => {
+      return {
+        id: e.payload.doc.id,
+        visitId:  e.payload.doc.data()['visitId'],
+        message:    e.payload.doc.data()['message'],
+        sender: e.payload.doc.data()['sender'],
+        pair: e.payload.doc.data()['pair'],
+        time: e.payload.doc.data()['time'],
+      }
     });
   }
 
