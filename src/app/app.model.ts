@@ -5,24 +5,26 @@ export interface Visit {
     residanceId:   any;
     timeOfVisit:   Date; // can be number
   }
-  
+
   export interface GroceryStore {
     id:      any;
     cityId:  any;
+    name:    String;
     address: String;
   }
-  
+
   export interface Residance {
     id:      any;
     cityId:  any;
+    name:    String;
     address: String;
   }
-  
+
   export interface City {
     id:   any;
     name: String;
   }
-  
+
   export interface User {
     id: any;
     email: String;
@@ -32,7 +34,7 @@ export interface Visit {
     residanceId: any;
     totalEarnings: Number; // Euro 1.55  will be saved 155
   }
-  
+
   export interface Chat {
     id:      any;
     visitId: any;
