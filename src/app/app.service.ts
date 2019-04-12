@@ -31,4 +31,8 @@ export class CrudService {
   login(model,record){
       return this.firestore.collection(model, ref => ref.where('email', '==', record.email).where('password', '==', record.password)).snapshotChanges();
   }
+
+  getUser(model,record){
+    return this.firestore.doc(model + '/' + record.userId).snapshotChanges();
+}
 }

@@ -29,7 +29,6 @@ export class RegisterPage implements OnInit {
     });
   }
   registerNotification() {
-    let record = {};
     var email = (<HTMLInputElement>document.getElementById('email')).value;
     var password = (<HTMLInputElement>document.getElementById('password')).value;
     var fullName = (<HTMLInputElement>document.getElementById('fullName')).value;
