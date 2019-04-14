@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            Chat
+        </ion-title>
+    </ion-toolbar>
+    <!-- <ion-navbar>
+        <ion-title>{{chatpartner.name}}</ion-title>
+    </ion-navbar> -->
+
+</ion-header>
+
+
+<ion-content>
+    <!-- <ion-list>
+        <ion-item *ngFor="let chat of chats | sort:'time'" class="chat" text-wrap [ngClass]="{'chat-partner' : isChatPartner(chat.sender)}">
+            <span *ngIf="!chat.message.startsWith('file-type')">{{chat.message}}</span>
+            <img *ngIf="chat.message.startsWith('file-type')  && chat.message.endsWith('.jpeg')" style="width: 100%;height: auto;" [src]="chat.message.replace('file-type', '')" />
+            <iframe *ngIf="chat.message.startsWith('file-type')  && chat.message.endsWith('.mp4')" style="width: 100%;height: auto;" [src]="chat.message.replace('file-type', '') | safe"></iframe>
+        </ion-item>
+        <ion-item class="chat chat-partner" text-wrap>
+            <span>His</span>
+        </ion-item>
+        <ion-item class="chat" text-wrap>
+            <span>Mine</span>
+        </ion-item>
+    </ion-list> -->
+
+    <ion-list>
+        <div class="chatBubble">
+            <div class="chat-bubble right">
+                <div class="message">Ola akjdfnjand asksdjnasjnd asdjoasldnlkasnd</div>
+            </div>
+        </div>
+        <div class="chatBubble">
+            <div class="chat-bubble left">
+                <div class="message">jkandoioas kajsdnasndas kd</div>
+            </div>
+        </div>
+    </ion-list>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-row>
+            <ion-col col-10>
+                <mat-form-field style="width: 100%; margin-bottom: -1em" appearance="outline">
+                    <mat-label>Message</mat-label>
+                    <input matInput placeholder="Message">
+                </mat-form-field>
+            </ion-col>
+            <ion-col col-2>
+                <button style="width:100%; margin-top: 1em;" mat-raised-button routerLink='/home' routerDirection="back" color="primary">
+                  <ion-icon name="send" style="font-size:1.9em"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+        <!-- show if If the userid is same as visit.userid -->
+        <button style="width:100%;" mat-raised-button routerLink='/home' routerDirection="back" color="accent">Upload Reciept</button>
+        <!-- -------------------------------- -->
+    </ion-toolbar>
+</ion-footer>

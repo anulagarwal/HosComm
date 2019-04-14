@@ -3,22 +3,25 @@
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
         </ion-buttons>
-        <ion-title>register</ion-title>
+        <ion-title>Profile</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
     <mat-form-field style="width:100%;">
-        <input matInput id="email" [(ngModel)]="sampleUser.email" placeholder="Email" type="text" required>
+        <input matInput id="email" disabled [(ngModel)]="sampleUser.email" placeholder="Email" type="text">
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput id="password" [(ngModel)]="sampleUser.password" placeholder="Password" type="password" required>
+        <input matInput id="password" [(ngModel)]="password" placeholder="Password" type="password" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput id="password2" placeholder="Confirm Password" type="password" required>
+        <input matInput [(ngModel)]="newPassword" placeholder="New Password" type="password">
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput id="fullName" [(ngModel)]="sampleUser.fullName" placeholder="Full Name" type="text" required>
+        <input matInput [(ngModel)]="confirmNewPassword" placeholder="Confirm New Password" type="password">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput id="fullName" disabled [(ngModel)]="sampleUser.fullName" placeholder="Full Name" type="text">
     </mat-form-field>
     <mat-form-field style="width:100%;">
         <mat-label>City</mat-label>
@@ -38,8 +41,9 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <br>
-    <ion-button mat-raised-button style="width:100%;" color="primary" (click)="registerNotification()">Register</ion-button>
-    <br>
-    <br>
+    <br/>
+    <br/>
+    <button style="width:100%;" mat-raised-button color="primary" (click)="update()">Update</button>
+    <br/>
+    <br/>
 </ion-content>

@@ -14,8 +14,9 @@
         </mat-option>
     </mat-select>
 </mat-form-field>
-<ion-item>
+<!-- <ion-item>
     <ion-label>Time</ion-label>
     <ion-datetime display-format="HH:mm" picker-format="HH:mm"></ion-datetime>
-</ion-item>
+</ion-item> -->
+<ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
 <button mat-raised-button color="primary">Mark Visit</button>

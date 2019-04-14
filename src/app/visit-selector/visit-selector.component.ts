@@ -15,6 +15,7 @@ export class VisitSelectorComponent implements OnInit {
   residanceId: any;
   stores: GroceryStore[];
   residances: Residance[];
+  time = {hour: 13, minute: 30};
 
   constructor(
     public dialogRef: MatDialogRef<VisitSelectorComponent>,
@@ -25,12 +26,14 @@ export class VisitSelectorComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.crudService.read('GroceryStores').subscribe(data => {
-      this.stores = this.mapper.mapStores(data);
-    });
-    this.crudService.read('Residances').subscribe(data => {
-      this.residances = this.mapper.mapResidances(data);
-    });
+    // this.crudService.read('GroceryStores').subscribe(data => {
+    //   this.stores = this.mapper.mapStores(data);
+    //   console.log(this.stores);
+    // });
+    // this.crudService.read('Residances').subscribe(data => {
+    //   this.residances = this.mapper.mapResidances(data);
+    //   console.log(this.residances);
+    // });
   }
 
 }

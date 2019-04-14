@@ -1,5 +1,5 @@
 export interface Visit {
-    id?:            any;
+    id?:           any;
     userId:        any;
     goceryStoreId: any;
     residanceId:   any;
@@ -7,36 +7,36 @@ export interface Visit {
   }
 
   export interface GroceryStore {
-    id:      any;
+    id?:     any;
     cityId:  any;
     name:    String;
     address: String;
   }
 
   export interface Residance {
-    id:      any;
+    id?:     any;
     cityId:  any;
     name:    String;
     address: String;
   }
 
   export interface City {
-    id:   any;
+    id?:  any;
     name: String;
   }
 
   export interface User {
-    id?: any;
-    email: String;
-    password: String;
-    fullName: String;
-    cityId?: any;
-    residanceId?: any;
-    totalEarnings?: Number; // Euro 1.55  will be saved 155
+    id?:           any;
+    email:         String;
+    password:      String;
+    fullName:      String;
+    cityId:        any;
+    residanceId:   any;
+    totalEarnings: Number; // Euro 1.55  will be saved 155
   }
 
   export interface Chat {
-    id?:      any;
+    id?:     any;
     visitId: any;
     message: string;
     sender:  string; //id or email of user who sends the message.

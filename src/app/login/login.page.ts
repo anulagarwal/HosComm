@@ -31,18 +31,20 @@ export class LoginPage implements OnInit {
         this.sampleUser = this.mapper.mapUsers(data);
         console.log(this.sampleUser);
 
+        //save user in local storage so that we can access that afterwards.
+
       });
 
   }
   addVisit(){
-    
+
     this.tempVisit = {
       userId:        '1MsCdMka7wFKyx38B4gY',
       goceryStoreId: '',
       residanceId:   '3OZjp06S5KdVQoAlVbwv',
       timeOfVisit:   new Date(),
     }
-  
+
     this.crudService.create('Visits',this.tempVisit).then(resp => {
       console.log(resp);
     })
@@ -50,10 +52,10 @@ export class LoginPage implements OnInit {
         console.log(error);
       });
   }
-  
+
   loadVisitList(){
     this.crudService.read('Visits').subscribe(data => {
- 
+
       this.tempVisits = this.mapper.mapVisits(data);
       for(var i = 0; i < this.tempVisits.length; i++)
       {

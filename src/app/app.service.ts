@@ -24,8 +24,8 @@ export class CrudService {
     this.firestore.doc(model + '/' + recordID).update(record);
   }
 
-  delete(model, record_id) {
-    this.firestore.doc(model + '/' + record_id).delete();
+  delete(model, recordId) {
+    this.firestore.doc(model + '/' + recordId).delete();
   }
 
   login(model,record){
