@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../app.service';
 import { MapperService } from '../mapper.service';
 import { GroceryStore, Residance, Visit, User } from '../app.model';
+import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mark-visit',
@@ -11,6 +13,7 @@ import { GroceryStore, Residance, Visit, User } from '../app.model';
 export class MarkVisitPage implements OnInit {
   storeId:     any;
   residanceId: any;
+  userId: string;
   stores: GroceryStore[];
   residances: Residance[];
   newVisit: Visit;
@@ -20,6 +23,8 @@ export class MarkVisitPage implements OnInit {
   constructor(
     private crudService : CrudService,
     private mapper : MapperService,
+    private storage: Storage,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,23 +36,25 @@ export class MarkVisitPage implements OnInit {
       this.residances = this.mapper.mapResidances(data);
       console.log(this.residances);
     });
-    // Populate logged in user from Local storage here.
+    this.storage.get('user').then((val) => {
+      this.userId = val;
+    });
   }
 
   addVisit(){
     this.newVisit = {
-      userId:        '1MsCdMka7wFKyx38B4gY', //this.user.id,
+      userId:        this.userId, //this.user.id,
       goceryStoreId: this.storeId,
       residanceId:   this.residanceId,
       timeOfVisit:   this.timeOfVisit,
     }
-
+    this.crudService.create('Visits',this.newVisit).then(resp => {
+      this.router.navigateByUrl('/home'); //Pass Success  Message that toast up in login screen.      
+      console.log(resp);
+    })
+      .catch(error => {
+        console.log(error);
+      });
     console.log(this.newVisit);
-
-    // this.crudService.create('Visits',this.newVisit).then(resp => {
-    //   console.log(resp);
-    // }).catch(error => {
-    //   console.log(error);
-    // });
   }
 }

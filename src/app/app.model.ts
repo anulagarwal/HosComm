@@ -30,9 +30,9 @@ export interface Visit {
     email:         String;
     password:      String;
     fullName:      String;
-    cityId:        any;
-    residanceId:   any;
-    totalEarnings: Number; // Euro 1.55  will be saved 155
+    cityId?:        any;
+    residanceId?:   any;
+    totalEarnings?: Number; // Euro 1.55  will be saved 155
   }
 
   export interface Chat {

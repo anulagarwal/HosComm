@@ -11,9 +11,9 @@ import {City, Residance, User} from '../app.model';
 })
 export class RegisterPage implements OnInit {
   sampleUser : User;
+  oldUser : User;
   cities: City[];
   residances: Residance[];
-  selecCities: any;
   selectedValueCity: string;
   selectedValueRes: string;
 
@@ -49,11 +49,41 @@ export class RegisterPage implements OnInit {
     this.sampleUser.cityId = this.selectedValueCity;
     this.sampleUser.residanceId = this.selectedValueRes;
 
-    this.crudService.create('Users',this.sampleUser).then(resp => {
-      console.log(resp);
-      this.router.navigateByUrl('/login'); //Pass Success  Message that toast up in login screen.
-    }).catch(error => {
-      console.log(error);
+    this.crudService.checkEmail('Users',this.sampleUser).subscribe(data => {
+      if(data.length != 0)
+      {
+        this.matToast.open('User already exists with this email!','', {
+          duration: 3000
+        });
+        this.oldUser = {
+          email : '',
+          password : '',
+          fullName : '',
+          cityId : '',
+          residanceId : '',
+          totalEarnings: 0,
+        }
+        return false;
+      }
+      else
+      {
+        this.crudService.create('Users',this.sampleUser).then(resp => {
+          console.log(resp);
+          this.router.navigateByUrl('/login'); //Pass Success  Message that toast up in login screen.
+        }).catch(error => {
+          console.log(error);
+        });
+        this.sampleUser = {
+          email : '',
+          password : '',
+          fullName : '',
+          cityId : '',
+          residanceId : '',
+          totalEarnings: 0,
+        }
+        return false;
+      }
     });
+    
   }
 }

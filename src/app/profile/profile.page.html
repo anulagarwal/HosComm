@@ -15,10 +15,10 @@
         <input matInput id="password" [(ngModel)]="password" placeholder="Password" type="password" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput [(ngModel)]="newPassword" placeholder="New Password" type="password">
+        <input matInput id="newPassword" [(ngModel)]="newPassword" placeholder="New Password" type="password">
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput [(ngModel)]="confirmNewPassword" placeholder="Confirm New Password" type="password">
+        <input matInput id="confirmNewPassword" [(ngModel)]="confirmNewPassword" placeholder="Confirm New Password" type="password">
     </mat-form-field>
     <mat-form-field style="width:100%;">
         <input matInput id="fullName" disabled [(ngModel)]="sampleUser.fullName" placeholder="Full Name" type="text">
@@ -36,7 +36,7 @@
         <mat-label>Residance</mat-label>
         <mat-select [(ngModel)]="selectedValueRes">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let residance of residances" (ngModelChange)="onChangeRes($event)" [value]="residance.id">
+            <mat-option *ngFor="let residance of residances" [value]="residance.id">
                 {{residance.name}}
             </mat-option>
         </mat-select>

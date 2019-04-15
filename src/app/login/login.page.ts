@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MapperService } from '../mapper.service';
 import { CrudService } from '../app.service';
 import { User,Visit } from '../app.model';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,9 +17,10 @@ export class LoginPage implements OnInit {
   sampleUser : any;
   sampleUsers : User[];
   visits : any;
-  constructor(private crudService: CrudService, private mapper:MapperService,private router: Router) { }
+  constructor(private crudService: CrudService, private mapper:MapperService,private router: Router,private storage: Storage) { }
 
   ngOnInit() {
+    this.sampleUsers=null;
     this.loadVisitList();
   }
   loginUser(){
@@ -32,12 +34,15 @@ export class LoginPage implements OnInit {
         console.log(this.sampleUser);
 
         //save user in local storage so that we can access that afterwards.
-
+        this.storage.set('user', this.sampleUser);
       });
 
   }
   addVisit(){
 
+    this.storage.get('user').then((val) => {
+      this.sampleUser = val;
+    });
     this.tempVisit = {
       userId:        '1MsCdMka7wFKyx38B4gY',
       goceryStoreId: '',
@@ -63,6 +68,7 @@ export class LoginPage implements OnInit {
         {
           this.crudService.getUser('Users',this.tempVisits[i]).subscribe(data => {
             console.log(data);
+            console.log(i);
             this.sampleUsers[i] = this.mapper.mapUsers(data);
             console.log(this.sampleUsers);
           });

@@ -7,15 +7,15 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" *ngIf="sampleUser">
     <mat-form-field style="width:100%;">
-        <input matInput id="email" [(ngModel)]="sampleUser.email" placeholder="Email" type="text" required>
+        <input matInput id="email" [(ngModel)]="sampleUser.email" placeholder="Email" type="email" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
         <input matInput id="password" [(ngModel)]="sampleUser.password" placeholder="Password" type="password" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput id="password2" placeholder="Confirm Password" type="password" required>
+        <input matInput id="password2" [(ngModel)]="sampleUser.password2" placeholder="Confirm Password" type="password" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
         <input matInput id="fullName" [(ngModel)]="sampleUser.fullName" placeholder="Full Name" type="text" required>
@@ -33,7 +33,7 @@
         <mat-label>Residance</mat-label>
         <mat-select [(ngModel)]="selectedValueRes">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let residance of residances" (ngModelChange)="onChangeRes($event)" [value]="residance.id">
+            <mat-option *ngFor="let residance of residances" [value]="residance.id">
                 {{residance.name}}
             </mat-option>
         </mat-select>
