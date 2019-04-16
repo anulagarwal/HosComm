@@ -19,7 +19,7 @@
     <mat-form-field style="width:100%;">
         <mat-label>Select a Store</mat-label>
         <mat-select [(value)]="storeId">
-            <mat-option *ngFor="let store of stores" [value]="store.id">
+            <mat-option *ngFor="let store of stores" [value]="store">
                 {{store.name}}
             </mat-option>
         </mat-select>

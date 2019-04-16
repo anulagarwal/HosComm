@@ -29,9 +29,4 @@ import { HomePage } from './home.page';
 })
 
 export class HomePageModule {
-
-  addVisit()
-  {
-    alert('asd');
-  }
 }

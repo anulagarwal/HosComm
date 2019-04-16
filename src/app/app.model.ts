@@ -1,9 +1,9 @@
 export interface Visit {
     id?:           any;
     userId:        any;
-    goceryStoreId: any;
+    groceryStoreId: any;
     residanceId:   any;
-    timeOfVisit:   Date; // can be number
+    timeOfVisit:   any; // can be number
   }
 
   export interface GroceryStore {

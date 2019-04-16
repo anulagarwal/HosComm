@@ -29,4 +29,23 @@
             </ion-fab-button>
         </ion-fab-list>
     </ion-fab>
+    <ion-card *ngFor="let item of visits">
+        <ion-card-header>
+            <ion-card-title>{{item.groceryStoreId.name}}</ion-card-title>
+            <ion-card-subtitle>Location: {{item.groceryStoreId.address}}</ion-card-subtitle>
+            <ion-card-subtitle>From: {{item.userId.fullName}}</ion-card-subtitle>
+            <ion-card-subtitle>Time of Visit: {{item.timeOfVisit}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+
+            <ion-button shape="round" color="secondary" size="small" (click)="EditRecord(item)">
+                <ion-icon size="small" slot="icon-only" name="create"></ion-icon>
+
+            </ion-button>
+            <ion-button shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+                <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
 </ion-content>

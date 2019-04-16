@@ -57,9 +57,9 @@ export class MapperService {
       return {
         id: e.payload.doc.id,
         userId:  e.payload.doc.data()['userId'],
-        goceryStoreId:    e.payload.doc.data()['goceryStoreId'],
+        groceryStoreId:    e.payload.doc.data()['groceryStoreId'],
         residanceId: e.payload.doc.data()['residanceId'],
-        timeOfVisit: e.payload.doc.data()['timeOfVisit'],
+        timeOfVisit: new Date(e.payload.doc.data()['timeOfVisit']).toLocaleString(),
       }
     });
   }

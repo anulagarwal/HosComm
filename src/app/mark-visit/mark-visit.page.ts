@@ -44,7 +44,7 @@ export class MarkVisitPage implements OnInit {
   addVisit(){
     this.newVisit = {
       userId:        this.userId, //this.user.id,
-      goceryStoreId: this.storeId,
+      groceryStoreId: this.storeId,
       residanceId:   this.residanceId,
       timeOfVisit:   this.timeOfVisit,
     }
